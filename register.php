@@ -1,3 +1,5 @@
+#!/usr/bin/php-cgi
+
 <?php
 
 require_once 'login.inc.php';
