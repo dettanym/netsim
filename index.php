@@ -100,6 +100,9 @@ if (LOGGEDIN && !isset($_GET['level'])) {
 </div>
 
 <div id="footer" style="position:absolute;bottom:0.5em;right:0.5em;font-size:0.5em">
+    adapted by <a href="https://cs.uwaterloo.ca/~m2mazmud">Miti Mazmudar</a> and
+    <a href="https://cs.uwaterloo.ca/~bkacsmar">Bailey Kacsmar</a>
+    from the original <a href="https://netsim.erinn.io">Netsim game</a> that was
 	created by 
 	<a href="https://erinn.io/">erinn atwater</a> and
 	<a href="https://cs.uwaterloo.ca/~cbocovic">cecylia bocovich</a> | 
