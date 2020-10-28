@@ -4,7 +4,9 @@
 
 require_once 'login.inc.php';
 
-if (LOGGEDIN && !isset($_GET['level'])) {
+if (WAITING_PERIOD) {
+    $leveldata = array('id' => -1, 'filename' => 'login/waiting', 'name' => 'CS4G Netsim');
+} else if (LOGGEDIN && !isset($_GET['level'])) {
 	include 'listing.inc.php';
 	exit();
 } else if (LOGGEDIN) {
@@ -34,12 +36,12 @@ if (LOGGEDIN && !isset($_GET['level'])) {
 	$leveldata = array('id' => -1, 'filename' => 'login/login', 'name' => 'CS4G Netsim');
 }
 
-?><!doctype html> 
-<html lang="en"> 
-<head> 
+?><!doctype html>
+<html lang="en">
+<head>
 	<meta charset="UTF-8" />
 	<title>CS4G Network Simulator</title>
-	
+
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/phaser.min.js"></script>
@@ -64,7 +66,7 @@ if (LOGGEDIN && !isset($_GET['level'])) {
 <div id="pane" style="position:absolute;padding:20px;overflow:auto;">
 	<h1><?=$leveldata['name']?></h1>
 
-<?php if (LOGGEDIN) { ?>
+<?php if (LOGGEDIN && !WAITING_PERIOD) { ?>
 	<input type="button" value="Level list" onclick="location.href='./'">
 <?php } ?>
 
@@ -103,10 +105,10 @@ if (LOGGEDIN && !isset($_GET['level'])) {
     adapted by <a href="https://cs.uwaterloo.ca/~m2mazmud">Miti Mazmudar</a> and
     <a href="https://cs.uwaterloo.ca/~bkacsmar">Bailey Kacsmar</a>
     from the original <a href="https://netsim.erinn.io">Netsim game</a> that was
-	created by 
+	created by
 	<a href="https://erinn.io/">erinn atwater</a> and
-	<a href="https://cs.uwaterloo.ca/~cbocovic">cecylia bocovich</a> | 
-	device images designed by 
+	<a href="https://cs.uwaterloo.ca/~cbocovic">cecylia bocovich</a> |
+	device images designed by
 	<a href="http://www.flaticon.com/authors/madebyoliver">madebyoliver</a> from Flaticon
 </div>
 

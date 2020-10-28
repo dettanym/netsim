@@ -58,7 +58,7 @@ function create() {
 	document.getElementById('pane').style.width = (vpWidth * 0.3 - 40) + 'px';
 	document.getElementById('pane').style.height = (vpHeight - 40) + 'px';
 
-<?php if (LOGGEDIN) { ?>
+<?php if (LOGGEDIN && !WAITING_PERIOD) { ?>
 	pause = game.add.sprite(80, 20, 'pause');
 	play = game.add.sprite(140, 20, 'play');
 	fast = game.add.sprite(200, 20, 'fast');
@@ -107,7 +107,7 @@ function create() {
 
 	$("#loading").hide();
 
-<?php if (LOGGEDIN) { ?>
+<?php if (LOGGEDIN && !WAITING_PERIOD) { ?>
 	game.input.keyboard.onPressCallback = function(e){ if (e == " ") {
 		if (game.paused) {
 			if (game.time.slowMotion == 1) btnFast();

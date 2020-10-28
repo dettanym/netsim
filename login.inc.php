@@ -21,7 +21,7 @@ if (!file_exists(DB_FILE)) {
 	} catch (Exception $e) {
 		echo "<p>Failed to create file: ".$e->getMessage()."</p>\n";
 	}
-	
+
 	include "footer.inc.php";
 	exit();
 }
@@ -54,5 +54,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 }
 
 define('LOGGEDIN', isset($_SESSION['cs4g_user_id']));
+define('WAITING_PERIOD', LOGGEDIN && date('m/d') != '11/15' && $_SESSION['cs4g_user_id'] == 5)
 
 ?>
