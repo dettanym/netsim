@@ -53,7 +53,12 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	header('Location: ./');
 }
 
+$date1 = new DateTime();
+$date2 = new DateTime("2011-03-26");
+
+$currentDateTime = date('Y-m-d H:i:s');
+$workshopDateTime = "2020-11-23 12:00:00";
 define('LOGGEDIN', isset($_SESSION['cs4g_user_id']));
-define('WAITING_PERIOD', LOGGEDIN && date('m/d') != '11/15' && $_SESSION['cs4g_user_id'] == 5)
+define('WAITING_PERIOD', $_SESSION['cs4g_user_id'] != 5 && $_SESSION['cs4g_user_id'] != 4 && LOGGEDIN && $currentDateTime < $workshopDateTime)
 
 ?>
