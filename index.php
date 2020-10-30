@@ -64,17 +64,18 @@ if (WAITING_PERIOD) {
 <div id="game" style="float:left"></div>
 
 <div id="pane" style="position:absolute;padding:20px;overflow:auto;">
+    <?php if (LOGGEDIN && !WAITING_PERIOD) { ?>
+        <input type="button" value="Go back to level list" onclick="location.href='./'">
+    <?php } ?>
+
 	<h1><?=$leveldata['name']?></h1>
 
-<?php if (LOGGEDIN && !WAITING_PERIOD) { ?>
-	<input type="button" value="Level list" onclick="location.href='./'">
-<?php } ?>
+    <input type="button" id="subpane_close" style="display:none" value="Level info" onclick="onSubpaneClose()">
 
-	<div id="leveldescrip" style="overflow:auto;">
+    <div id="leveldescrip" style="overflow:auto;">
 	<?php include 'levels/'.$leveldata['filename'].'.html'; ?>
 	</div>
 
-	<input type="button" id="subpane_close" style="display:none" value="Level info" onclick="onSubpaneClose()">
 	<div id="subpane" style="display:none"></div>
 </div>
 
